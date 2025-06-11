@@ -15,7 +15,7 @@ public class UrlService {
 
     public void getUrl(String url){
 
-       kafkaTemplate.send("url",url);
+       kafkaTemplate.send("url","id1",url);
 
     }
 }

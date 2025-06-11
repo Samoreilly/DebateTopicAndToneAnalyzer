@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7bad143f-f035-4cae-82c2-317b993271e3" name="Changes" comment="controllers and services setup to take in url via postrequest and then send to kafka">
-      <change afterPath="$PROJECT_DIR$/src/main/java/debate/debate/KafkaListeners.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/debate/debate/SecurityConfig.java" afterDir="false" />
+    <list default="true" id="7bad143f-f035-4cae-82c2-317b993271e3" name="Changes" comment="Listener setup to consume data from python, which will eventually be used to send results back to backend">
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/debate/debate/DebateAnalyserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/debate/debate/DebateAnalyserApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/debate/debate/KafkaListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/debate/debate/KafkaListeners.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/debate/debate/controllers/UrlCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/debate/debate/controllers/UrlCon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/debate/debate/kafkaconfig/KafkaTopicConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/debate/debate/kafkaconfig/KafkaTopicConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/debate/debate/services/UrlService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/debate/debate/services/UrlService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,11 +37,11 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="Security Analysis" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2yMhw3ko4gYT1l6WIjpmIYZJN5x" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -51,34 +50,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "Spring Boot.DebateAnalyserApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;Spring Boot.DebateAnalyserApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="DebateAnalyser" />
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
-      <kind />
+      <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <method v="2" />
@@ -87,7 +86,7 @@
       <module name="DebateAnalyser" />
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
-      <kind />
+      <kind value="DIRECTORY" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
@@ -178,7 +177,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1749650585605</updated>
-      <workItem from="1749650586797" duration="6540000" />
+      <workItem from="1749650586797" duration="7479000" />
+      <workItem from="1749673612641" duration="3036000" />
     </task>
     <task id="LOCAL-00001" summary="Setup url topic, producer and consumer config.">
       <option name="closed" value="true" />
@@ -196,16 +196,36 @@
       <option name="project" value="LOCAL" />
       <updated>1749655966300</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Listener setup to consume data from python, which will eventually be used to send results back to backend">
+      <option name="closed" value="true" />
+      <created>1749659334609</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1749659334609</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Setup url topic, producer and consumer config." />
     <MESSAGE value="controllers and services setup to take in url via postrequest and then send to kafka" />
-    <option name="LAST_COMMIT_MESSAGE" value="controllers and services setup to take in url via postrequest and then send to kafka" />
+    <MESSAGE value="Listener setup to consume data from python, which will eventually be used to send results back to backend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Listener setup to consume data from python, which will eventually be used to send results back to backend" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
