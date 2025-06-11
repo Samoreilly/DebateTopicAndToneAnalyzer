@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7bad143f-f035-4cae-82c2-317b993271e3" name="Changes" comment="Setup url topic, producer and consumer config.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/debate/debate/services/UrlService.java" afterDir="false" />
+    <list default="true" id="7bad143f-f035-4cae-82c2-317b993271e3" name="Changes" comment="controllers and services setup to take in url via postrequest and then send to kafka">
+      <change afterPath="$PROJECT_DIR$/src/main/java/debate/debate/KafkaListeners.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/debate/debate/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/debate/debate/DebateAnalyserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/debate/debate/DebateAnalyserApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/debate/debate/controllers/UrlCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/debate/debate/controllers/UrlCon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/debate/debate/kafkaconfig/KafkaTopicConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/debate/debate/kafkaconfig/KafkaTopicConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,10 +53,15 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "Spring Boot.DebateAnalyserApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "go.import.settings.migrated": "true",
     "kotlin-language-version-configured": "true",
@@ -170,7 +178,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1749650585605</updated>
-      <workItem from="1749650586797" duration="4361000" />
+      <workItem from="1749650586797" duration="6540000" />
     </task>
     <task id="LOCAL-00001" summary="Setup url topic, producer and consumer config.">
       <option name="closed" value="true" />
@@ -180,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749653775962</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="controllers and services setup to take in url via postrequest and then send to kafka">
+      <option name="closed" value="true" />
+      <created>1749655966300</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1749655966300</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,7 +204,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Setup url topic, producer and consumer config." />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup url topic, producer and consumer config." />
+    <MESSAGE value="controllers and services setup to take in url via postrequest and then send to kafka" />
+    <option name="LAST_COMMIT_MESSAGE" value="controllers and services setup to take in url via postrequest and then send to kafka" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

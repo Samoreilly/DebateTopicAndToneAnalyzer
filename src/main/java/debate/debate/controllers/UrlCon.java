@@ -18,7 +18,7 @@ public class UrlCon {
     }
 
     @PostMapping("/url")
-    public ResponseEntity<String> receiveURl(String url){
+    public ResponseEntity<String> receiveURl(@RequestParam String url){
         urlService.getUrl(url);
         return ResponseEntity.ok("Url sent to kafka");
     }

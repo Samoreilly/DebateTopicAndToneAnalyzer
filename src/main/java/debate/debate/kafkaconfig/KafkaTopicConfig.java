@@ -11,4 +11,8 @@ public class KafkaTopicConfig {
         return TopicBuilder.name("url")
                 .build();
     }
+    public NewTopic urlResultsTopic(){
+        return TopicBuilder.name("url-results")
+                .build();
+    }
 }
