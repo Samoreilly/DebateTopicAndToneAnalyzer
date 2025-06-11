@@ -35,6 +35,7 @@ public class KafkaListeners {
 
     @KafkaListener(topics = "url-results", groupId = "produce-url-python")
     public void sendResult(ConsumerRecord<String, String> record){
+        System.out.println(record.value() +"wijadiwl");
         String id = record.key();//get session id from message key from python stream
         SseEmitter emitter = userEmitter.get(id);//get connection from user emitter
 
