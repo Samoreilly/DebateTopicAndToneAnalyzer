@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7bad143f-f035-4cae-82c2-317b993271e3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/debate/debate/kafkaconfig/KafkaConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/debate/debate/kafkaconfig/KafkaProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/debate/debate/kafkaconfig/KafkaTopicConfig.java" afterDir="false" />
+    <list default="true" id="7bad143f-f035-4cae-82c2-317b993271e3" name="Changes" comment="Setup url topic, producer and consumer config.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/debate/debate/services/UrlService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/debate/debate/controllers/UrlCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/debate/debate/controllers/UrlCon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,11 +34,16 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 7
 }]]></component>
   <component name="ProjectId" id="2yMhw3ko4gYT1l6WIjpmIYZJN5x" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -166,12 +170,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1749650585605</updated>
-      <workItem from="1749650586797" duration="2878000" />
+      <workItem from="1749650586797" duration="4361000" />
     </task>
+    <task id="LOCAL-00001" summary="Setup url topic, producer and consumer config.">
+      <option name="closed" value="true" />
+      <created>1749653775962</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1749653775962</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Setup url topic, producer and consumer config." />
+    <option name="LAST_COMMIT_MESSAGE" value="Setup url topic, producer and consumer config." />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
