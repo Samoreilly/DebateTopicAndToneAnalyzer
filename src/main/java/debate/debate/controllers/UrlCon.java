@@ -20,12 +20,18 @@ public class UrlCon {
     }
 
     @PostMapping("/url")
-    public ResponseEntity<String> receiveURl(@RequestParam String url){
-        urlService.getUrl(url);
+    public ResponseEntity<String> receiveURl(@RequestParam String url, HttpSession session){
+        System.out.println(url +"123456");
+        urlService.getUrl(url,session.getId());
         return ResponseEntity.ok("Url sent to kafka");
     }
     @GetMapping("/streams/results")
     public SseEmitter streamResults(HttpSession session){//session is auto injected when get request is made
         return kafkaListeners.streamResults(session);
+    }
+    @GetMapping()
+    public String getSession(HttpSession session){//session is auto injected when get request is made
+        session.setAttribute("id" ,"1");
+        return session.getId();
     }
 }

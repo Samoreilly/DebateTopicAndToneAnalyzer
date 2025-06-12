@@ -3,6 +3,7 @@ package debate.debate;
 
 import jakarta.servlet.http.HttpSession;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
@@ -24,7 +25,13 @@ public class KafkaListeners {
     public SseEmitter streamResults(HttpSession session){
         SseEmitter emitter = new SseEmitter(Long.MAX_VALUE);
         userEmitter.put(session.getId(),emitter);//takes in session id as emmitter will associated this
+        System.out.println(session.getId());
         //session id with client side session id to connect with
+        try {
+            emitter.send(SseEmitter.event().name("connected").data("SSE connection established"));
+        } catch (IOException e) {
+            // handle error
+        }
 
         emitter.onCompletion(() -> userEmitter.remove(session.getId()));//clear oncomplete
         emitter.onTimeout(() -> userEmitter.remove(session.getId()));//clear if doesnt complete in time
@@ -35,7 +42,8 @@ public class KafkaListeners {
 
     @KafkaListener(topics = "url-results", groupId = "produce-url-python")
     public void sendResult(ConsumerRecord<String, String> record){
-        System.out.println(record.value() +"wijadiwl");
+        System.out.println(record.value() + "wijadiwl");
+        System.out.println(record.key() + "key");
         String id = record.key();//get session id from message key from python stream
         SseEmitter emitter = userEmitter.get(id);//get connection from user emitter
 
