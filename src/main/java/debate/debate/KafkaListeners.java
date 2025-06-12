@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -30,7 +31,7 @@ public class KafkaListeners {
         try {
             emitter.send(SseEmitter.event().name("connected").data("SSE connection established"));
         } catch (IOException e) {
-            // handle error
+            System.out.println("Error in emitting"+ e);
         }
 
         emitter.onCompletion(() -> userEmitter.remove(session.getId()));//clear oncomplete
@@ -45,16 +46,34 @@ public class KafkaListeners {
         System.out.println(record.value() + "wijadiwl");
         System.out.println(record.key() + "key");
         String id = record.key();//get session id from message key from python stream
+        System.out.println("RECORD KEYYY---A"+ record.key());
         SseEmitter emitter = userEmitter.get(id);//get connection from user emitter
 
-        if(emitter != null){//check if session id exists
+        if(record.value() != null){
+            System.out.println("NOT NULLLL");
+        }
+        if(emitter != null && isEmitterActive(emitter)){//check if session id exists
             try{
-                emitter.send(record.value());//return to frontend
+                Map<String, String> map = new HashMap<>();
+                System.out.println("RECORD VALUE --- " + record.value());
+                map.put("data",record.value());
+                emitter.send(map);//return to frontend
+                System.out.println("successfully sent record.value");
             }catch(Exception e){
-                userEmitter.remove(id);
-
+                e.printStackTrace();
+                handleDisconnectedClient(emitter);
+                System.out.println("NOT ACTIVE");
             }
         }
+    }
+    private boolean isEmitterActive(SseEmitter emitter) {
+
+        return userEmitter.containsValue(emitter);
+    }
+
+    private void handleDisconnectedClient(SseEmitter emitter) {
+        userEmitter.values().remove(emitter);
+        emitter.complete();
     }
 
 }
