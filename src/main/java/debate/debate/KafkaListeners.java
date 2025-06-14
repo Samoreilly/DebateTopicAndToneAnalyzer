@@ -59,6 +59,7 @@ public class KafkaListeners {
                 map.put("data",record.value());
                 emitter.send(map);//return to frontend
                 System.out.println("successfully sent record.value");
+
             }catch(Exception e){
                 e.printStackTrace();
                 handleDisconnectedClient(emitter);
